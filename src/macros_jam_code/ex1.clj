@@ -9,9 +9,9 @@
 (fact
  (unless (> 10 5)
          "smaller"
-         "greater") => "smaller")
+         "greater") => "greater")
 
 (fact
  (unless (> 10 20)
          "smaller"
-         "greater") => "greater")
+         "greater") => "smaller")
