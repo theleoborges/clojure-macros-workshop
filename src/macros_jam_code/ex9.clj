@@ -62,7 +62,7 @@
 ;; shortcuts for common operations such as finding all users, creating
 ;; users and finding a single user.
 
-;;To that end, wrtie a macro `def-basic-entity` that replaces the
+;;To that end, write a macro `def-basic-entity` that replaces the
 ;;`defentity` macro above in a way that it makes the following facts true
 
 
