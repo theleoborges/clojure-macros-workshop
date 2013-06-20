@@ -78,8 +78,8 @@
 (defmacro def-basic-entity [& args])
 
 (def-basic-entity users
-                (entity-fields :first :last)
-                (has-one addresses {:fk :user_id}))
+  (entity-fields :first :last)
+  (has-one addresses {:fk :user_id}))
 
 (def-basic-entity addresses
   (entity-fields :address :postcode)
