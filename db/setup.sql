@@ -1,0 +1,3 @@
+CREATE TABLE users(id INTEGER PRIMARY KEY, first VARCHAR(50), last VARCHAR(50));
+
+CREATE TABLE addresses(id INTEGER PRIMARY KEY, address VARCHAR(100), postcode VARCHAR(10), user_id INTEGER);
