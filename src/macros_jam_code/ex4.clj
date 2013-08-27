@@ -9,7 +9,7 @@
 
 ;;
 ;; So that it allows us to declare a function
-;; for use in that scope. This makes sence since the inner function
+;; for use in that scope. This makes sense since the inner function
 ;; fac has no meaning outside the outer factorial function
 ;;
 (defn factorial [n]
