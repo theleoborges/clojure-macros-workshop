@@ -23,7 +23,21 @@
 (defmacro t [& args])
 
 
-;; So these facts hold true:
+;;
+;; So these facts hold true (try and make them pass in order):
+;;
+(fact
+ (t guitar :specs) => {:pickups {:neck {:brand "EMG"
+                                        :model "EMG 60"}
+                       :bridge {:brand "EMG"
+                                :model "EMG 81"}}
+                       :body "Mahoganny"
+                       :neck "Mahoganny"})
+
+
+(fact 
+ (t 2 (+ 4)) => 6)
+
 
 (fact
  (t guitar :specs :pickups :neck :model) => "EMG 60")

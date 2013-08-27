@@ -14,11 +14,12 @@
 (defmacro from [& args])
 
 
+
 ;;
 ;; So that these facts hold true:
 ;;
 (fact
  (from n in names
-       (where (= (. n length) 5))
+       (where (= (count n) 5))
        (orderby n)
-       (select (. n toUpperCase))) => '("BURKE" "DAVID" "FRANK"))
+       (select (.toUpperCase n))) => '("BURKE" "DAVID" "FRANK"))

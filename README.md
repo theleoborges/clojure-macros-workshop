@@ -14,6 +14,8 @@ or
 
 And all facts should be failing. Your task is to fix them by writing and/or fixing existing macros
 
+You can refer to CHEATSHEET.md in the root directory for tips on the various macro syntax bits.
+
 ## License
 
 Copyright © 2013 [Leonardo Borges](http://www.leonardoborges.com)
