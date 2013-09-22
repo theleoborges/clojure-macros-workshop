@@ -33,4 +33,4 @@
                  "positive"
                  (prn (.nextLine res))
                  (prn "negative"))
-            (.close res))) => (not (throws java.lang.IllegalArgumentException)))
+            (.close res))) => nil)
