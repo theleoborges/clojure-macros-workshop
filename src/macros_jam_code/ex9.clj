@@ -64,18 +64,20 @@
 
 ;;To that end, write a macro `def-basic-entity` that replaces the
 ;;`defentity` macro above in a way that it makes the following facts true
-
-
-
-(defn all-users [& args])
-(defn create-user [& args])
-(defn find-user [& args])
-(defn create-address [& args])
-
-;; Note that the functions above are only so declared to make the code
-;; compile. The actual magic should be in your macro. The objective of
-;; this exercise is to NOT have to define these functions/macros manually.
-(defmacro def-basic-entity [& args])
+(defmacro def-basic-entity [name & body]
+  `(do (defentity ~name ~@body)
+       (defn ~(symbol (str "create-" (singular name))) [attrs#]
+         (insert ~name
+                 (values attrs#)))
+       
+       (defmacro ~(symbol (str "all-" name)) [& all-opts#]
+         `(select ~'~name
+                  ~@all-opts#))
+       
+       (defmacro ~(symbol (str "find-" (singular name))) [id# & find-opts#]
+         `(first (select ~'~name
+                         ~@find-opts#
+                         (where {:id ~id#}))))))
 
 (def-basic-entity users
   (entity-fields :first :last)

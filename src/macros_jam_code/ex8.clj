@@ -27,10 +27,20 @@
                   (bind (fn [b]
                           (return (* 3 b))))))))) => '(3 -3 6 -6))
 
+(defn m-steps [m [name val & bindings] body]
+  (if (seq bindings)
+    `(-> ~val
+         ((:bind ~m) (fn [~name]
+                       ~(m-steps m bindings body))))
+    `(-> ~val
+         ((:bind ~m) (fn [~name]
+                       ((:return ~m) ~body))))))
+
 ;;
 ;; Write a macro 'domonad':
 ;;
-(defmacro domonad [& args])
+(defmacro domonad [m bindings body]
+  (m-steps m bindings body))
 
 ;; That allows for a nicer monad comprehension syntax and makes the
 ;;fact below hold true:
@@ -39,4 +49,4 @@
  (domonad list-monad
     [a [1 2]
      b [a, (- a)]]
-     (* 3 b)) => '(3 -3 6 -6))
+    (* 3 b)) => '(3 -3 6 -6))

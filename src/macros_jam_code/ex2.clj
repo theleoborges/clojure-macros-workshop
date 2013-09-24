@@ -20,24 +20,17 @@
 ;;
 ;; Write a macro 't':
 ;;
-(defmacro t [& args])
+(defmacro t
+  ([seed form]
+     (if (list? form)
+       `(~(first form) ~seed ~@(rest form))
+       `(~seed ~form)))  
+  ([seed form & args]
+     `(t (t ~seed ~form)
+         ~@args)))
 
 
-;;
-;; So these facts hold true (try and make them pass in order):
-;;
-(fact
- (t guitar :specs) => {:pickups {:neck {:brand "EMG"
-                                        :model "EMG 60"}
-                       :bridge {:brand "EMG"
-                                :model "EMG 81"}}
-                       :body "Mahoganny"
-                       :neck "Mahoganny"})
-
-
-(fact 
- (t 2 (+ 4)) => 6)
-
+;; So these facts hold true:
 
 (fact
  (t guitar :specs :pickups :neck :model) => "EMG 60")

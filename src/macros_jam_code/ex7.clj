@@ -7,9 +7,9 @@
 (defmacro nif [val pos zero neg]
   "Numeric if. Executes pos, zero or neg depending
   if val is positive, zero or negative respectively"
-  `(let [~'res ~val]
-     (cond (pos? ~'res) ~pos
-           (zero? ~'res) ~zero
+  `(let [res# ~val]
+     (cond (pos? res#) ~pos
+           (zero? res#) ~zero
            :else ~neg)))
 
 

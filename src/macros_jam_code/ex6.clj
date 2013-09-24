@@ -1,6 +1,8 @@
 (ns macros-jam-code.ex6
   (:use midje.sweet))
 
+;; TODO: Level: Easy
+
 ;;
 ;; Macro hygiene
 ;;
@@ -14,7 +16,8 @@
 ;;
 
 (defmacro square [n]
-  `(* ~n ~n))
+  `(let [n# ~n]
+     (* n# n#)))
 
 (fact
  (let [seed (atom 9)

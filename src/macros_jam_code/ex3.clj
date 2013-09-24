@@ -11,8 +11,14 @@
 ;;
 ;; Write a macro 'from':
 ;;
-(defmacro from [& args])
-
+(defmacro from [name _ coll [_ where-body] [_ orderby-body] [_ select-body]]
+  `(->> ~coll
+        (filter (fn [~name]
+                  ~where-body))
+        (sort-by (fn [~name]
+                   ~orderby-body))
+        (map (fn [~name]
+               ~select-body))))
 
 
 ;;
@@ -20,6 +26,6 @@
 ;;
 (fact
  (from n in names
-       (where (= (count n) 5))
+       (where (= (. n length) 5))
        (orderby n)
-       (select (.toUpperCase n))) => '("BURKE" "DAVID" "FRANK"))
+       (select (. n toUpperCase))) => '("BURKE" "DAVID" "FRANK"))

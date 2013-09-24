@@ -4,7 +4,12 @@
 ;;
 ;; Write a macro 'with-file':
 ;;
-(defmacro with-file [& args])
+(defmacro with-file [file-name & body]
+  `(let [~'file (java.util.Scanner. (java.io.File. ~file-name))]
+     (try
+       ~@body
+       (finally
+        (.close ~'file)))))
 
 
 ;;

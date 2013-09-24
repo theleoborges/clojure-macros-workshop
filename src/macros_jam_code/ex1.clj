@@ -3,7 +3,10 @@
 
 
 ;; Define a macro 'unless':
-(defmacro unless [& args])
+(defmacro unless [test then else]
+  `(cond ~test
+     ~else
+     :else ~then))
 
 ;; So these facts hold true:
 (fact
