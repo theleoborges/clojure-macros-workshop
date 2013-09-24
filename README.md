@@ -1,6 +1,8 @@
 # macros-jam-code
 
-Exercises used in the Macros hands-on at LambdaJam 2013 in Brisbane, Australia.
+Exercises used in the Macros hands-on at LambdaJam 2013 in Brisbane, Australia and CUFP 2013 in Boston, USA.
+
+Slides of the workshop can be found on [slide share](http://www.slideshare.net/borgesleonardo/clojure-macros-workshop-lambdajam-2013-cufp-2013).
 
 ## Usage
 

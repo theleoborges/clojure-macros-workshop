@@ -1,7 +1,6 @@
 (ns macros-jam-code.ex4
   (:use midje.sweet))
 
-;; TODO: put this as the second exercise
 
 ;;
 ;; Write a macro 'let-fn':

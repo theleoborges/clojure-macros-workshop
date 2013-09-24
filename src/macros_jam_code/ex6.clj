@@ -1,8 +1,6 @@
 (ns macros-jam-code.ex6
   (:use midje.sweet))
 
-;; TODO: Level: Easy
-
 ;;
 ;; Macro hygiene
 ;;
